@@ -73,6 +73,49 @@
 				}
 			}
 		}).addTo(mymap);
+
+		var Legend1 = L.control.Legend({
+		    position: "bottomright",
+			title: "Fault Types",
+		    legends: [
+					{
+						label: "Normal",
+		        		type: "polyline",
+		        		color: "#e41a1c",
+						weight: 4
+		    		},
+					{
+						label: "Reverse",
+						type: "polyline",
+						color: "#377eb8",
+						weight: 4
+					}
+			]
+		}).addTo(mymap);
+
+//Earthquake legend
+		var Legend2 = L.control.Legend({
+				position: "bottomleft",
+				title: "Earthquake Magnitude",
+				legends: [
+					{
+					 	label: "Less than 1",
+						type: "circle",
+						radius: 2,
+						color: "black",
+						fill: true,
+						fillOpacity: "0.4"
+					},
+					{
+						label: "Between 1 and 2.5",
+						type: "circle",
+						radius: 4,
+						color: "black",
+						fill: true,
+						fillOpacity: "0.4"
+					}
+			]
+		}).addTo(mymap);
 	</script>
 </body>
 </html>
