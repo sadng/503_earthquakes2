@@ -113,6 +113,24 @@
 						fill: true,
 						fillOpacity: "0.4"
 					}
+	        _toggleLegend: function (legendDiv, layers) {
+            if (L.DomUtil.hasClass(legendDiv, "leaflet-legend-item-inactive")) {
+                L.DomUtil.removeClass(legendDiv, "leaflet-legend-item-inactive");
+                if (L.Util.isArray(layers)) {
+                    for (var i = 0, len = layers.length; i < len; i++) {
+                        this._map.addLayer(layers[i]);
+                    }
+                } else {
+                    this._map.addLayer(layers);
+                }
+            } else {
+                L.DomUtil.addClass(legendDiv, "leaflet-legend-item-inactive");
+                if (L.Util.isArray(layers)) {
+                    for (var i = 0, len = layers.length; i < len; i++) {
+                        this._map.removeLayer(layers[i]);
+                    }
+                } else {
+                    this._map.removeLayer(layers);
 			]
 		}).addTo(mymap);
 	</script>
