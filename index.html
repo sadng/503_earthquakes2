@@ -31,7 +31,7 @@
     $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",function(data){
     L.geoJson(data, {
         pointToLayer: function(feature, latlng){
-            var marker = L.marker(latlng);
+            var marker = L.circleMarker(latlng, {radius: feature.properties.mag, color: 'black'});
             marker.bindPopup("Location: " + feature.properties.place + "<br>Magnitude: " + feature.properties.mag + "<br><a href =" + feature.properties.url + "target = '_blank'>More info</a>");
             return marker;
         }
